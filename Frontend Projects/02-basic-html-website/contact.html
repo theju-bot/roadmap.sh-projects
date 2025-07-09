@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+    <!--  seo tags -->
+    <meta title="author" content="theju" />
+    <meta title="description" content="a simple html project for roadkmap.sh" />
+    <meta
+      title="keywords"
+      content="html project, roadmap.sh, contac page, frontend project"
+    />
+  </head>
+  <body>
+    <header>
+      <figure>
+        <img class="profile-image" src="image.html" alt="my picture" />
+        <figcaption>your name</figcaption>
+      </figure>
+      <nav class="navigation">
+        <ul>
+          <li><a href="homepage.html">Home</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="articles.html">Articels</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <article class="form-contact">
+        <form action="https://httpbin.org/post" method="post" class="form">
+          <fieldset>
+            <legend>Contact ME</legend>
+            <label for="name">Name:</label>
+            <input
+              name="username"
+              type="text"
+              id="name"
+              required
+              placeholder="Enter Your Name"
+            /><br />
+            <label for="mail">Contact Mail:</label>
+            <input
+              name="email"
+              type="email"
+              id="email"
+              required
+              placeholder="myname@email.com"
+            /><br />
+            <label for="comment">Your Thoughts:</label>
+            <textarea
+              name="comment"
+              id="comment"
+              rows="3"
+              cols="20"
+              placeholder="Enter your thoughts"
+            ></textarea
+            ><br />
+            <button type="submit">SEND</button><br />
+            <button type="reset">TYPE AGAIN</button><br />
+          </fieldset>
+        </form>
+      </article>
+    </main>
+    <footer>
+      <p>&copy; all right reserverd 2025</p>
+    </footer>
+  </body>
+</html>
