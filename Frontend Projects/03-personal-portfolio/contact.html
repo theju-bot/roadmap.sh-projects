@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts</title>
+    <!--  seo tags -->
+    <meta title="author" content="theju" />
+    <meta title="description" content="a simple html project for roadkmap.sh" />
+    <meta
+      title="keywords"
+      content="html project, roadmap.sh, contac page, frontend project"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="head">
+      <figure>
+        <img
+          class="profile-image"
+          src="images/image.png"
+          alt="my picture"
+          height="30px"
+          width="30px"
+        />
+      </figure>
+        <figcaption>your name</figcaption>
+      <nav class="navigation">
+        <ul>
+          <li><a href="homepage.html" class="hyper">Home /&nbsp; </a></li>
+          <li><a href="projects.html" class="hyper">Projects /&nbsp; </a></li>
+          <li><a href="articles.html" class="hyper">Articels /&nbsp;</a></li>
+          <li><a href="contact.html" class="hyper">Contact </a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <article class="form-contact">
+        <form action="https://httpbin.org/post" method="post" class="form">
+          <fieldset>
+            <legend>Contact ME</legend>
+            <label for="name">Name:</label>
+            <input
+              name="username"
+              type="text"
+              class="input"
+              id="name"
+              required
+              placeholder="Enter Your Name"
+            /><br />
+            <label for="mail">Contact Mail:</label>
+            <input
+              name="email"
+              type="email"
+              class="input"
+              id="email"
+              required
+              placeholder="myname@email.com"
+            /><br />
+            <label for="comment">Your Thoughts:</label><br>
+            <textarea
+              name="comment"
+              class="input"
+              id="comment"
+              rows="3"
+              cols="20"
+              placeholder="Enter your thoughts"
+            ></textarea
+            ><br />
+            <button type="submit" class="button">SEND</button><br />
+            <button type="reset"class="button">TYPE AGAIN</button><br />
+          </fieldset>
+        </form>
+      </article>
+    </main>
+    <footer class="foot">
+      <p>&copy; all right reserverd 2025</p>
+    </footer>
+  </body>
+</html>
