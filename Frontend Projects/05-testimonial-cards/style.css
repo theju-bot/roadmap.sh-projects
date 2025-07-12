@@ -1,0 +1,147 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.app {
+  width: 100%;
+  padding: 1rem 1.5rem;
+}
+.container {
+  max-width: 920px;
+  margin: auto;
+  padding: 1rem;
+}
+.card-1 {
+  width: 100%;
+  margin: 1rem auto;
+}
+.card-2 {
+  width: 100%;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+.card-3 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+}
+.card-4 {
+  width: 100%;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 1rem auto;
+}
+
+.comment-1 {
+  background-color: #1e1e1e;
+  color: #f1f2f3;
+  padding: 1rem;
+  border-radius: 10px;
+  position: relative;
+  margin-bottom: 0.8rem;
+}
+.comment-1::after {
+  content: "";
+  background-color: #1e1e1e;
+  width: 20px;
+  height: 20px;
+  transform: rotate(45deg);
+  position: absolute;
+  /* top: 100px; */
+}
+.comment-2 {
+  margin-bottom: 1rem;
+}
+.comment-3 {
+  width: 68%;
+  padding: 1rem;
+  border-radius: 10px;
+  color: #f1f2f3;
+  background-color: #1e1e1e;
+}
+
+.lead {
+  font-size: 12px;
+}
+.lead:last-child {
+  margin: 1rem 0;
+  font-size: 24px;
+}
+.inline-profile {
+  max-width: 300px;
+  display: flex;
+  align-items: center;
+}
+.avatar-round {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.name {
+  text-transform: capitalize;
+}
+.position {
+  text-transform: capitalize;
+}
+.profile {
+  width: 30%;
+}
+.avatar-square {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+}
+.position-fade {
+  font-size: 18px;
+  margin: 0.7rem 0rem;
+  color: #a3a3a3;
+  text-transform: uppercase;
+}
+.slider-top {
+  max-width: 300px;
+  margin: 0.5rem auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fade {
+  opacity: 0.8;
+  width: 45px;
+  height: 45px;
+}
+.name:last-child {
+  text-align: center;
+}
+.fa {
+  font-size: 48px;
+}
+@media (max-width: 500px) {
+  .card-3 {
+    flex-direction: column;
+  }
+  .profile {
+    width: 100%;
+  }
+  .comment-3 {
+    width: 100%;
+  }
+  .slider .slider-top img {
+    width: 35px;
+    height: 35px;
+  }
+  .fade {
+    width: 20px;
+    height: 20px;
+  }
+  .slider .slider-top .fa {
+    font-size: 18px;
+  }
+}
