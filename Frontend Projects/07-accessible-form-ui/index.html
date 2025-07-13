@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Accessible form UI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://kit.fontawesome.com/f0a338deb3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <form class="form" action="https://httpbin.org/get" method="get">
+      <div class="form-part">
+        <label for="name" class="label">Full Name</label>
+        <input
+          type="text"
+          class="input"
+          placeholder="What should we call you?"
+          id="name"
+        />
+      </div>
+      <div class="form-part">
+        <label for="email" class="label">Email</label>
+        <input
+          type="email"
+          class="input"
+          placeholder="myname@gmail.com"
+          id="email"
+        />
+      </div>
+      <div class="form-part">
+        <label for="password1" class="label">Enter Password</label>
+        <div class="pass">
+          <input
+            type="password"
+            class="input"
+            placeholder="xxxxxxxx"
+            id="password1"
+          />
+          <i class="fa-solid fa-eye"></i>
+        </div>
+      </div>
+      <div class="form-part">
+        <label for="password2" class="label">Confirm Password</label>
+        <div class="pass">
+          <input
+            type="password"
+            class="input"
+            placeholder="xxxxxxxx"
+            id="password2"
+          />
+          <i class="fa-solid fa-eye"></i>
+        </div>
+      </div>
+       <button class="button">Update Profile </button>
+      <div class="circle"><span>65%</span></div>
+      <div class="formlog">
+        <p>Profile Completeness</p><br>
+        <div class="square">
+            <p class="through p">Create Account</p>
+            <p class="through p">Update Roadmap Progress</p>
+            <p class="through p">Setup Public Profile</p>
+            <p class="p">Complete your first project</p>
+            <p class="p">Invite your Friends</p>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
