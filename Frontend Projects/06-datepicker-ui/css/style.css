@@ -1,0 +1,95 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* root */
+:root {
+  --bg-color: white;
+  --bg-color-2: whitesmoke;
+  --bg-color-3: rgb(133, 133, 133);
+  --font-color: #333;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --height: 4vh;
+  --box-shadow: 4px 4px 6px var(--shadow);
+  --box-shadow-2: -4px -4px 6px var(--shadow);
+}
+
+/* body */
+body {
+  background-color: var(--bg-color-2);
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+/* container */
+.date-picker {
+  border: transparent solid 2px;
+  border-radius: 0 0 var(--height) var(--height);
+  box-shadow: var(--box-shadow) inset, var(--box-shadow);
+  display: inline-block;
+  padding: 2vh;
+}
+
+/* inputbox */
+.inputbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.date-picker input {
+  height: 6vh;
+  border-radius: 1vh;
+  border: transparent 1px solid;
+  position: relative;
+  padding-top: 1.2em;
+  padding-left: 0.2em;
+  color: var(--font-color);
+  box-shadow: var(--box-shadow) inset, var(--box-shadow);
+}
+.date-picker input::placeholder {
+  position: absolute;
+  bottom: 0.1em;
+  left: 0.2em;
+  font-size: 2vh;
+}
+.date-picker input:focus {
+  border: transparent 2px solid;
+  outline: none;
+}
+
+/* button */
+.date-picker button {
+  height: 6vh;
+  width: 6vh;
+  background-color: var(--bg-color);
+  border-radius: 1vh;
+  border: transparent 2px solid;
+  outline: none;
+  box-shadow: var(--box-shadow) inset, var(--box-shadow);
+}
+.date-picker button:active {
+  background-color: var(--bg-color-3);
+}
+.date-picker button img {
+  height: 6vh;
+  width: auto;
+}
+
+/* calender */
+.calender {
+  padding: 1vh;
+  border: transparent 1px solid;
+  border-radius: 2vh;
+  box-shadow: var(--box-shadow) inset, var(--box-shadow);
+}
+.header {
+  border: 1px solid transparent;
+  box-shadow: var(--box-shadow) inset, var(--box-shadow-2) inset;
+  border-radius: 1vh;
+}
