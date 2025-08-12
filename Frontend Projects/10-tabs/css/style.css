@@ -1,0 +1,43 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #333;
+}
+.container{
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.nav{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.nav p{
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  color: #333;
+}
+.nav p.active{
+  background-color: #333;
+  color: #fff;
+}
+.content {
+  display: block;  
+}
+.content div {
+  display: none;  
+}
+.content div.active {
+  display: block;  
+}
