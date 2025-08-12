@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-color: #333;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+}
+.content {
+  max-width: 600px;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  border-radius: 10px;
+}
+.cookie {
+  background-color: black;
+  color: whitesmoke;
+  position: absolute;
+  bottom: 10vh;
+  right: 7vw;
+  height: 40%;
+  width: 18%;
+  border-radius: 20px;
+  padding: 1rem;
+}
+.cookie img {
+  width: 2rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+.cookie .x {
+  font-size: 2rem;
+  display: inline-block;
+  text-align: right;
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+}
+.cookie .text {
+  font-size: 1.5rem;
+  display: flex;
+}
+.cookie button {
+  background-color: white;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 1.5rem;
+  outline: none;
+}
+
+
+
+
+
+
+
+.hide {
+  display: none;
+}
