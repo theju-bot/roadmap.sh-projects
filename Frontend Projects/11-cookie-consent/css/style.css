@@ -49,6 +49,7 @@ body {
 .cookie .text {
   font-size: 1.5rem;
   display: flex;
+  padding-top: 20px;
 }
 .cookie button {
   background-color: white;
@@ -63,13 +64,6 @@ body {
   font-size: 1.5rem;
   outline: none;
 }
-
-
-
-
-
-
-
 .hide {
   display: none;
 }
