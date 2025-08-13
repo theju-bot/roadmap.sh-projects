@@ -1,0 +1,19 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+textarea{
+    max-height: 100px;
+    max-width: 300px;
+    min-height: 100px;
+    min-width: 300px;
+    border-radius: 9px;
+    border: 1px solid black;
+}
+
+.count{
+    margin-top: 10px;
+}
