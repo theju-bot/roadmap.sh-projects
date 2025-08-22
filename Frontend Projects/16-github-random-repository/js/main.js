@@ -16,6 +16,7 @@ async function getLangData() {
   try {
     const gotLang = await fetch(urlLang);
     const langData = await gotLang.json();
+    display.classList.remove('error');
     addData(langData);
   } catch (err) {
     display.innerHTML = '<p>Failed to load languages!</p>';
@@ -40,6 +41,7 @@ async function langSelect(e) {
     const data = await gotSearch.json();
     lastSearch = data;
     displayData(data);
+    display.classList.remove('error');
     //throw new error('Error');
   } catch (err) {
     display.innerHTML = '<p>Error fetching repositories</p><br>';
@@ -74,3 +76,4 @@ function displayData(objects) {
 
 lnSelect.addEventListener('change', langSelect);
 button.addEventListener('click', () => displayData(lastSearch));
+
