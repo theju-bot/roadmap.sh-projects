@@ -13,3 +13,6 @@ Projects I did from Roadmap.sh
 [Restricted Textarea](https://roadmap.sh/projects/restricted-textarea), [Accordion](https://roadmap.sh/projects/accordion),\
 [Custom Dropdown](https://roadmap.sh/projects/custom-dropdown),[Task Tracker](https://roadmap.sh/projects/task-tracker-js),\
 [GitHub Random Repository](https://roadmap.sh/projects/github-random-repo), [Temperature Converter](https://roadmap.sh/projects/temperature-converter)
+
+## REACT
+[Pomodoro Timer](https://github.com/theju-bot/pro02_pomodoro_timer), [Github Pages](https://theju-bot.github.io/pro02_pomodoro_timer/)
