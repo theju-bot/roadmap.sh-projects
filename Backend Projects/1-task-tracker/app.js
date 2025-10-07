@@ -2,6 +2,7 @@ const fsPromises = require('fs').promises;
 const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
+const dayjs = require('dayjs');
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -140,21 +141,21 @@ const markDone = (input, list) => {
   const newList = list.map((item) => {
     if (item.id === num) {
       found = true;
-      return { ...item, status: 'done', updatedAt: new Date() };
+      return { ...item, status: 'done', updatedAt: currentDate() };
     }
     return item;
+  });
 
-    if (!found) {
-      console.log(`Item with id ${num} not found`);
-      rl.prompt();
-      return;
-    }
+  if (!found) {
+    console.log(`Item with id ${num} not found`);
+    rl.prompt();
+    return;
+  }
 
-    fs.writeFile(filePath, JSON.stringify(newList, null, 2), (err) => {
-      if (err) throw err;
-      console.log(`Item with id ${num} updated successfully`);
-      rl.prompt();
-    });
+  fs.writeFile(filePath, JSON.stringify(newList, null, 2), (err) => {
+    if (err) throw err;
+    console.log(`Item with id ${num} updated successfully`);
+    rl.prompt();
   });
 };
 
@@ -175,21 +176,20 @@ const markInProg = (input, list) => {
   const newList = list.map((item) => {
     if (item.id === num) {
       found = true;
-      return { ...item, status: 'in progress', updatedAt: new Date() };
+      return { ...item, status: 'in progress', updatedAt: currentDate() };
     }
     return item;
+  });
+  if (!found) {
+    console.log(`Item with id ${num} not found`);
+    rl.prompt();
+    return;
+  }
 
-    if (!found) {
-      console.log(`Item with id ${num} not found`);
-      rl.prompt();
-      return;
-    }
-
-    fs.writeFile(filePath, JSON.stringify(newList, null, 2), (err) => {
-      if (err) throw err;
-      console.log(`Item with id ${num} updated successfully`);
-      rl.prompt();
-    });
+  fs.writeFile(filePath, JSON.stringify(newList, null, 2), (err) => {
+    if (err) throw err;
+    console.log(`Item with id ${num} updated successfully`);
+    rl.prompt();
   });
 };
 
@@ -198,8 +198,8 @@ const addData = (input, list) => {
     id: list.length ? list[list.length - 1].id + 1 : 1,
     description: input,
     status: 'todo',
-    createdAt: new Date(),
-    updatedAt: new Date(),
+    createdAt: currentDate(),
+    updatedAt: currentDate(),
   };
 
   fs.writeFile(filePath, JSON.stringify([...list, obj], null, 2), (err) => {
@@ -228,7 +228,7 @@ const updateData = (input, list) => {
   const newList = list.map((item) => {
     if (item.id === num) {
       found = true;
-      return { ...item, description, updatedAt: new Date() };
+      return { ...item, description, updatedAt: currentDate() };
     }
     return item;
 
@@ -267,6 +267,11 @@ const deleteData = (input, list) => {
     if (err) throw err;
     rl.prompt();
   });
+};
+
+const currentDate = () => {
+  const now = new Date();
+  return dayjs(now).format('YYYY-MM-DD HH:mm:ss');
 };
 
 fileChecking();
