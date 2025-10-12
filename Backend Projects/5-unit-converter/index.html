@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Thesigan" />
+    <meta name="description" content="unit converter" />
+    <meta name="keywords" content="unit, converter, roadmap" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Unit Converter</h1>
+      <nav class="nav">
+        <ul>
+          <li onclick="loadForm('length.html');">Length</li>
+          <li onclick="loadForm('weight.html');">Weight</li>
+          <li onclick="loadForm('temperature.html');">Temperature</li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="form-container"></div>
+      <div class="results-container hidden"></div>
+    </main>
+    <script src="js/script.js"></script>
+  </body>
+</html>

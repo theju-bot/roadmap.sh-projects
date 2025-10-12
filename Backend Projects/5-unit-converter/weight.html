@@ -1,0 +1,22 @@
+<div id="weight-form">
+  <h2>Weight Conversion</h2>
+  <form class="form" onsubmit="unitConverter(event, 'weight')">
+    <label for="number">Enter the weight to convert:</label>
+    <input type="number" name="number" id="number" required />
+    <label for="unit-form">Unit to Convert from:</label>
+    <select name="uf" id="unit-from">
+      <option value="grams">Grams</option>
+      <option value="kilograms">Kilograms</option>
+      <option value="pounds">Pounds</option>
+      <option value="ounces">Ounces</option>
+    </select>
+    <label for="unit-to">Unit to Convert to:</label>
+    <select name="ut" id="unit-to">
+      <option value="grams">Grams</option>
+      <option value="kilograms" selected>Kilograms</option>
+      <option value="pounds">Pounds</option>
+      <option value="ounces">Ounces</option>
+    </select>
+    <button type="submit">Convert</button>
+  </form>
+</div>

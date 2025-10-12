@@ -1,0 +1,22 @@
+<div id="length-form">
+  <h2>Length Conversion</h2>
+  <form class="form" onsubmit="unitConverter(event, 'length')">
+    <label for="number">Enter the length to convert:</label>
+    <input type="number" name="number" id="number" required />
+    <label for="unit-form">Unit to Convert from:</label>
+    <select name="uf" id="unit-from">
+      <option value="meters">Meters</option>
+      <option value="kilometers">Kilometers</option>
+      <option value="feet">Feet</option>
+      <option value="miles">Miles</option>
+    </select>
+    <label for="unit-to">Unit to Convert to:</label>
+    <select name="ut" id="unit-to">
+      <option value="meters">Meters</option>
+      <option value="kilometers" selected>Kilometers</option>
+      <option value="feet">Feet</option>
+      <option value="miles">Miles</option>
+    </select>
+    <button type="submit">Convert</button>
+  </form>
+</div>
