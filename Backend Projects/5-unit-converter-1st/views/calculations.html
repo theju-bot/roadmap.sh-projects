@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div id="result">Loading...</div>
+    <button onclick="history.back()">Back to Convertor</button>
+
+    <script>
+      (async () => {
+        const resp = await fetch('/middleware/getResults');
+        const lastObj = await resp.json();
+        const el = document.getElementById('result');
+        if (!lastObj) {
+          el.textContent = 'No results found';
+          return;
+        }
+        el.textContent = `${lastObj.inputValue} ${lastObj.u1} = ${lastObj.result} ${lastObj.u2}`;
+      })();
+    </script>
+  </body>
+</html>

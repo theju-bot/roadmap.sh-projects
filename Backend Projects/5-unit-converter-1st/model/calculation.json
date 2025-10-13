@@ -1,0 +1,128 @@
+[
+  {
+    "type": "length",
+    "inputValue": 34,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.034
+  },
+  {
+    "type": "length",
+    "inputValue": 34,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.034
+  },
+  {
+    "type": "length",
+    "inputValue": 34,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.034
+  },
+  {
+    "type": "length",
+    "inputValue": 34,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.034
+  },
+  {
+    "type": "length",
+    "inputValue": 67834,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 67.834
+  },
+  {
+    "type": "length",
+    "inputValue": 67834,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 67.834
+  },
+  {
+    "type": "length",
+    "inputValue": 67834,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 67.834
+  },
+  {
+    "type": "length",
+    "inputValue": 67834,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 67.834
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "length",
+    "inputValue": 23,
+    "u1": "meters",
+    "u2": "kilometers",
+    "result": 0.023
+  },
+  {
+    "type": "temperature",
+    "inputValue": null,
+    "u1": "fahrenheit",
+    "u2": "celsius",
+    "result": null
+  },
+  {
+    "type": "weight",
+    "inputValue": 34,
+    "u1": "grams",
+    "u2": "kilograms",
+    "result": 0.034
+  }
+]

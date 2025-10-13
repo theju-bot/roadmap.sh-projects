@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Thesigan" />
+    <meta name="description" content="Unit Convertor By Thesigan" />
+    <meta name="keywords" content="Unit Convertor, backend, roadmap, weight" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UC - Weight</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h2 class="heading">Unit Convertor</h2>
+      <nav class="nav">
+        <ul>
+          <li><a href="/length">Length</a></li>
+          <li><a href="/weight" class="active">Weight</a></li>
+          <li><a href="/temperature">Temperature</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <form target="_self" action="/calculations" method="get">
+        <input type="hidden" name="type" value="weight" />
+        <label for="length">Enter the weight to convert:</label>
+        <input type="number" name="number" id="length" />
+        <label for="u1">Unit to convert from:</label>
+        <select name="u1" id="unit-to">
+          <option value="grams">Grams</option>
+          <option value="kilograms">Kilograms</option>
+          <option value="pounds">Pounds</option>
+          <option value="ounces">Ounces</option>
+        </select>
+
+        <label for="u2">Unit to convert to:</label>
+        <select name="u2" id="unit-to">
+          <option value="grams">Grams</option>
+          <option value="kilograms" selected>Kilograms</option>
+          <option value="pounds">Pounds</option>
+          <option value="ounces">Ounces</option>
+        </select>
+
+        <button type="submit">Convert</button>
+      </form>
+    </main>
+  </body>
+</html>
