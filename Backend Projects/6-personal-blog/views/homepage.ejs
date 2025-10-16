@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PB - Homepage</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2>Personal Blog</h2>
+    <button id="loginBtn">Login</button>
+
+    <div class="container">
+      <div class="card">
+        <ul id="content-heading-container">
+          <% if (!articles || articles.length === 0) { %>
+          <li>No Blogs yet</li>
+          <% } else { %> <% articles.forEach(article => { %>
+          <li>
+            <a href="/article/<%= article.id %>"><%= article.heading %></a>
+            <span><%= article.date %></span>
+          </li>
+          <% }); %> <% } %>
+        </ul>
+      </div>
+    </div>
+    <script>
+      document.getElementById('loginBtn').addEventListener('click', () => {
+        window.location.href = '/admin';
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PB - Admin - Homepage</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2>Personal Blog - Admin</h2>
+
+    <div style="display: flex; gap: 10px; align-self: flex-end; margin-bottom: 20px;">
+      <button id="homeBtn">Home</button>
+      <button id="addBtn">+ Add</button>
+    </div>
+
+    <div class="container">
+      <div class="card">
+        <h3>Articles</h3>
+        <ul class="admin-list">
+          <% if (!articles || articles.length === 0) { %>
+            <li>No Blogs yet</li>
+          <% } else { %>
+            <% articles.forEach(article => { %>
+              <li>
+                <span><%= article.heading %></span>
+                <div>
+                  <a href="/admin-article/<%= article.id %>">Edit</a>
+                  <a href="/admin-delete?id=<%= article.id %>">Delete</a>
+                </div>
+              </li>
+            <% }); %>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById('addBtn').addEventListener('click', () => {
+        window.location.href = '/admin-add';
+      });
+
+      document.getElementById('homeBtn').addEventListener('click', () => {
+        window.location.href = '/home';
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "heading": "The Power of Small Habits",
+    "description": "Big goals are achieved by taking small, consistent steps every day. Whether it’s reading 10 pages, drinking more water, or writing 100 words, small habits build momentum. Over time, they compound into massive results. Focus on progress, not perfection.",
+    "date": "October 16, 2025"
+  },
+  {
+    "id": 2,
+    "heading": "Why Learning to Code Changes Your Mindset",
+    "description": "Coding isn’t just about computers—it’s about problem-solving. It teaches patience, logical thinking, and creativity. When you start coding, you stop fearing errors. Every bug becomes a challenge, every fix a victory. The best part? The skills apply to life, not just tech.",
+    "date": "October 16, 2025"
+  },
+  {
+    "id": 3,
+    "heading": "The Secret to Perfect Homemade Burgers",
+    "description": "The secret to a juicy burger is simple—don’t overmix your meat! Use fresh ingredients, add a pinch of salt and pepper, and cook on high heat for a crispy outside. Toast your buns, add cheese while it’s hot, and enjoy your masterpiece!",
+    "date": "October 16, 2025"
+  },
+  {
+    "id": 4,
+    "heading": "Why Morning Walks Boost Your Mental Health",
+    "description": "Walking in the morning clears your mind and fills your lungs with fresh air. Studies show it improves focus, mood, and creativity. It’s the perfect way to start your day—no gym required. Just step outside and move.",
+    "date": "October 16, 2025"
+  },
+  {
+    "id": 5,
+    "heading": "How to Stay Motivated When You Feel Stuck",
+    "description": "Everyone loses motivation sometimes. The trick is not to wait for it to come back—act anyway. Start small, build momentum, and remind yourself why you started. Motivation follows action, not the other way around.",
+    "date": "October 16, 2025"
+  }
+]

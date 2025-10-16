@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Article</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h2 class="page-title">Update Article</h2>
+
+    <div class="admin-container">
+      <form action="/admin-editDone" method="get" class="admin-card">
+        <input type="hidden" name="id" value="<%= article.id %>" />
+
+        <label>Article Title</label>
+        <input
+          type="text"
+          name="heading"
+          value="<%= article.heading %>"
+          required
+        />
+
+        <label>Content</label>
+        <textarea name="description" required><%= article.description %></textarea>
+
+        <button type="submit">Update</button>
+      </form>
+    </div>
+  </body>
+</html>
