@@ -16,7 +16,8 @@ Projects I did from Roadmap.sh
 [GitHub Random Repository](https://roadmap.sh/projects/github-random-repo), [Temperature Converter](https://roadmap.sh/projects/temperature-converter)
 
 ## REACT
-[Pomodoro Timer](https://github.com/theju-bot/pro02_pomodoro_timer)-[Github Pages](https://theju-bot.github.io/pro02_pomodoro_timer/)
+[Pomodoro Timer](https://github.com/theju-bot/pro02_pomodoro_timer)-[Github Pages](https://theju-bot.github.io/pro02_pomodoro_timer/),\
+[Quiz App](https://github.com/theju-bot/pro3_quiz_app)-[Github Pages](https://theju-bot.github.io/pro3_quiz_app/#/)
 
 ## BACKEND
 ## JAVASCRIPT
