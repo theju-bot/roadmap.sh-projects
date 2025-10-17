@@ -1,0 +1,20 @@
+{
+  "name": "7-weather-api",
+  "version": "1.0.0",
+  "description": "weather api",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "thesigan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "redis": "^5.8.3"
+  }
+}
