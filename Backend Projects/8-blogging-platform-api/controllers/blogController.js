@@ -34,7 +34,7 @@ const getAllBlogs = async (req, res) => {
   } else {
     const blogs = await Blog.find();
     if (!blogs) return res.status(204).json({ message: 'No blogs found.' });
-    res.json(blogs);
+    res.status(200).json(blogs);
   }
 };
 

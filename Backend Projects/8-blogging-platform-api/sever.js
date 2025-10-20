@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');  
 
 require('dotenv').config();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3000;
 
 // built-in middleware for json 
 app.use(express.json());
