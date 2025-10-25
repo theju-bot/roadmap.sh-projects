@@ -199,5 +199,5 @@ Server will be running at:
 ### 👨‍💻 Author
 
 Thesigan Yogarasa\
-Aspiring Fullstack Developer — React, Node.js, Express & MongoDB.\
+MERN Stack Enthusiast & Aspiring Fullstack Developer\
 Built as part of [roadmap.sh backend projects](https://roadmap.sh/projects/expense-tracker-api)
