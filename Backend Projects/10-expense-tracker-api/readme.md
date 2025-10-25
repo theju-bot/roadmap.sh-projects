@@ -64,9 +64,9 @@ This project is built as part of the [roadmap.sh Expense Tracker API Project](ht
 ---
 
 ## 🔧 Environment Variables
-```bash
 Create a `.env` file in the project root and include:
 
+```bash
 PORT=5000
 DATABASE_URI=mongodb+srv://<your-cluster>/<db-name>
 ACCESSS_TOKEN_SECRET=<your-secret-key>
@@ -198,5 +198,5 @@ Server will be running at:
 ### 👨‍💻 Author
 
 Thesigan Yogarasa\
-Aspiring Fullstack Developer — React, Node.js, Express & MongoDB
+Aspiring Fullstack Developer — React, Node.js, Express & MongoDB.\
 Built as part of [roadmap.sh backend projects](https://roadmap.sh/projects/expense-tracker-api)
