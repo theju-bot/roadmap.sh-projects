@@ -1,0 +1,22 @@
+{
+  "name": "10-expense-tracker-api",
+  "version": "1.0.0",
+  "description": "expense tracker api",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "author": "thesigan",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dayjs": "^1.11.18",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.2",
+    "mongoose-sequence": "^6.0.1",
+    "uuid": "^13.0.0"
+  }
+}
