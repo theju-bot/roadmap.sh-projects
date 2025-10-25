@@ -39,26 +39,26 @@ This project is built as part of the [roadmap.sh Expense Tracker API Project](ht
 ---
 
 ## ⚙️ Project Structure
-.
-├── config/
-│ └── dbConn.js
-├── controllers/
-│ ├── authController.js
-│ └── expenseController.js
-├── middleware/
-│ ├── verifyJWT.js
-│ ├── errorHandler.js
-│ └── logEvents.js
-├── model/
-│ ├── UserETAPI.js
-│ └── ExpenseETAPI.js
-├── routes/
-│ ├── register.js
-│ ├── login.js
-│ └── api/
-│ └── expense.js
-├── server.js
-└── .env
+.\
+├── config/\
+│ └── dbConn.js\
+├── controllers/\
+│ ├── authController.js\
+│ └── expenseController.js\
+├── middleware/\
+│ ├── verifyJWT.js\
+│ ├── errorHandler.js\
+│ └── logEvents.js\
+├── model/\
+│ ├── UserETAPI.js\
+│ └── ExpenseETAPI.js\
+├── routes/\
+│ ├── register.js\
+│ ├── login.js\
+│ └── api/\
+│ └── expense.js\
+├── server.js\
+└── .env\
 
 
 ---
@@ -197,6 +197,6 @@ Server will be running at:
 
 ### 👨‍💻 Author
 
-Thesigan Yogarasa
+Thesigan Yogarasa\
 Aspiring Fullstack Developer — React, Node.js, Express & MongoDB
 Built as part of [roadmap.sh backend projects](https://roadmap.sh/projects/expense-tracker-api)
