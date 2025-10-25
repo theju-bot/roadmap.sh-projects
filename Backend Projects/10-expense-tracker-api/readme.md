@@ -160,8 +160,9 @@ Authorization: Bearer <token>
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/<your-username>/expense-tracker-api.git
-cd expense-tracker-api
+git clone https://github.com/theju-bot/roadmap.sh-projects.git
+cd "Backend Projects"
+cd 10-expense-tracker-api
 ```
 
 ### 2️⃣ Install dependencies
