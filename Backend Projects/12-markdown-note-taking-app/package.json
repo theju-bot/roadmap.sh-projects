@@ -1,0 +1,21 @@
+{
+  "name": "12-markdown-note-taking-app",
+  "version": "1.0.0",
+  "description": "Markdown Note Taking App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "author": "Thesigan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.12.2",
+    "dayjs": "^1.11.18",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "marked": "^16.4.1",
+    "multer": "^2.0.2",
+    "uuid": "^13.0.0"
+  }
+}
