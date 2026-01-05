@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= user.userName %>'s Cart
+    </title>
+    <link rel="stylesheet" href="./css/cart.css">
+</head>
+
+<body>
+
+    <!-- Hamburger Toggle (Mobile Only) -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+    </button>
+
+    <!-- Dashboard Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-header">
+                <h3>Hello, <%= user.userName %> 👋🏻</h3>
+                <button class="close-btn" id="closeSidebar">×</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/products" class="nav-link">Products</a></li>
+                    <li><a href="/cart" class="nav-link active">Cart</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <h1>
+            <%= user.userName %>'s Cart
+        </h1>
+
+        <div class="cart-container">
+            <% if (cart.products && cart.products.length> 0) { %>
+
+                <% cart.products.forEach(item=> { %>
+                    <div class="cart-item" data-product-id="<%= item.productId._id %>"
+                        data-product-name="<%= item.productId.name %>" data-unit-price="<%= item.productId.price %>"
+                        data-quantity="<%= item.quantity %>">
+                        <img src="<%= item.productId.imageUrl %>" alt="<%= item.productId.name %>">
+
+                        <div class="item-info">
+                            <h3>
+                                <%= item.productId.name %>
+                            </h3>
+                            <p>
+                                <%= item.productId.description %>
+                            </p>
+                            <p>Quantity: <%= item.quantity %>
+                            </p>
+                        </div>
+
+                        <div class="item-price">
+                            $<%= (item.productId.price * item.quantity).toFixed(2) %>
+                        </div>
+
+                        <button class="delete-btn" data-product-id="<%= item.productId._id %>">
+                            Remove
+                        </button>
+                    </div>
+                    <% }) %>
+
+                        <button id="checkoutBtn" class="checkout-btn">
+                            Proceed to Checkout
+                        </button>
+
+                        <% } else { %>
+                            <div class="empty-cart">
+                                <p>Your cart is empty 🛒</p>
+                            </div>
+                            <% } %>
+        </div>
+
+        <a href="/products" class="back-btn">← Continue Shopping</a>
+    </main>
+
+    <script>
+        /* Sidebar logic */
+        const sidebar = document.getElementById('dashboardSidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const closeBtn = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggleBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        // Always show sidebar on desktop
+        if (window.innerWidth >= 769) {
+            sidebar.classList.add('active');
+        }
+
+        /* Logout */
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+
+        /* Remove from cart */
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const productId = button.dataset.productId;
+
+                if (!confirm('Remove this item from your cart?')) return;
+
+                try {
+                    const res = await fetch('/cart', {
+                        method: 'DELETE',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ productId })
+                    });
+
+                    const data = await res.json();
+
+                    if (!res.ok) {
+                        alert(data.message || 'Failed to remove product');
+                        return;
+                    }
+
+                    window.location.reload();
+                } catch (err) {
+                    alert('Server error');
+                }
+            });
+        });
+
+        /* Stripe Checkout */
+        const checkoutBtn = document.getElementById("checkoutBtn");
+
+        if (checkoutBtn) {
+            checkoutBtn.addEventListener("click", async () => {
+                try {
+                    checkoutBtn.disabled = true;
+                    checkoutBtn.innerText = "Redirecting...";
+
+                    // Collect cart items from data attributes
+                    const items = [];
+                    document.querySelectorAll('.cart-item').forEach(item => {
+                        items.push({
+                            productId: item.dataset.productId,
+                            name: item.dataset.productName,
+                            price: parseFloat(item.dataset.unitPrice),
+                            quantity: parseInt(item.dataset.quantity)
+                        });
+                    });
+
+                    const res = await fetch("/stripe/checkout", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ items })
+                    });
+
+                    const data = await res.json();
+
+                    if (!res.ok) {
+                        alert(data.message || "Checkout failed");
+                        checkoutBtn.disabled = false;
+                        checkoutBtn.innerText = "Proceed to Checkout";
+                        return;
+                    }
+
+                    // Redirect to Stripe checkout
+                    window.location.href = data.url;
+                } catch (err) {
+                    console.error("Checkout error:", err);
+                    alert("An error occurred during checkout");
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.innerText = "Proceed to Checkout";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

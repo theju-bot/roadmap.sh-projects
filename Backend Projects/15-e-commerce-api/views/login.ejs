@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= page==='register' ? 'Register' : 'Login' %>
+    </title>
+    <link rel="stylesheet" href="/css/login.css" />
+</head>
+
+<body>
+    <div class="auth-container">
+        <div class="toggle-buttons">
+            <button id="login-btn" class="toggle-btn <%= page === 'login' ? 'active' : '' %>">Login</button>
+            <button id="register-btn" class="toggle-btn <%= page === 'register' ? 'active' : '' %>">Register</button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form" class="form-wrapper <%= page === 'login' ? 'active' : '' %>">
+            <h2>Login</h2>
+            <form method="post" action="/auth">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" placeholder="your.email@example.com" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="••••••••" required />
+                </div>
+
+                <button type="submit" class="btn">Sign In</button>
+            </form>
+
+            <div class="extra-links">
+                <p>Don't have an account? <a href="#" onclick="switchToRegister()">Register</a></p>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div id="register-form" class="form-wrapper <%= page === 'register' ? 'active' : '' %>">
+            <h2>Register</h2>
+            <form method="post" action="/register">
+                <div class="form-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" name="userName" placeholder="Choose a username" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-name">Full Name</label>
+                    <input type="text" id="reg-name" name="name" placeholder="Your full name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">Email</label>
+                    <input type="email" id="reg-email" name="email" placeholder="your.email@example.com" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" name="password" placeholder="••••••••" required />
+                </div>
+
+                <div class="form-group admin-field">
+                    <label for="reg-admin">Admin Password (optional)</label>
+                    <input type="password" id="reg-admin" name="adminPassword" placeholder="Admin only" />
+                </div>
+
+                <button type="submit" class="btn">Create Account</button>
+            </form>
+
+            <div class="extra-links">
+                <p>Already have an account? <a onclick="switchToLogin()">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById("login-btn");
+        const registerBtn = document.getElementById("register-btn");
+        const loginForm = document.getElementById("login-form");
+        const registerForm = document.getElementById("register-form");
+        const pageTitle = document.querySelector("title");
+
+        function switchToLogin() {
+            pageTitle.textContent = "Login";
+            loginBtn.classList.add("active");
+            registerBtn.classList.remove("active");
+            loginForm.classList.add("active");
+            registerForm.classList.remove("active");
+
+            // Update URL without reload (optional nice touch)
+            history.pushState({ page: 'login' }, 'Login', '/login');
+        }
+
+        function switchToRegister() {
+            pageTitle.textContent = "Register";
+            registerBtn.classList.add("active");
+            loginBtn.classList.remove("active");
+            registerForm.classList.add("active");
+            loginForm.classList.remove("active");
+
+            history.pushState({ page: 'register' }, 'Register', '/register');
+        }
+
+        // Event listeners
+        loginBtn.addEventListener("click", switchToLogin);
+        registerBtn.addEventListener("click", switchToRegister);
+
+        // Handle browser back/forward
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.page === 'register') {
+                switchToRegister();
+            } else {
+                switchToLogin();
+            }
+        });
+    </script>
+</body>
+
+</html>

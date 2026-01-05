@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products</title>
+    <link rel="stylesheet" href="./css/products.css">
+</head>
+
+<body>
+
+    <!-- Hamburger Toggle (Mobile Only) -->
+    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+    </button>
+
+    <!-- Dashboard Sidebar -->
+    <aside class="dashboard-sidebar" id="dashboardSidebar">
+        <div class="sidebar-inner">
+            <div class="sidebar-header">
+                <h3>Hello, <%= user.userName %> 👋🏻</h3>
+                <button class="close-btn" id="closeSidebar" aria-label="Close menu">×</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul>
+                    <li><a href="/products" class="nav-link active">Products</a></li>
+                    <li><a href="/cart" class="nav-link">Cart</a></li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button class="logout-btn" id="logoutBtn">Logout</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Overlay (Mobile Only) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1>Our Products</h1>
+
+            <% if (products && products.length> 0) { %>
+                <div class="products-grid">
+                    <% products.forEach(product=> { %>
+                        <div class="product-card">
+                            <div class="card-header">
+                                <span class="price">$<%= product.price.toFixed(2) %></span>
+                            </div>
+                            <div class="card-image">
+                                <img src="<%= product.imageUrl %>" alt="<%= product.name %>" class="product-image">
+                            </div>
+                            <div class="card-body">
+                                <h2 class="product-title">
+                                    <%= product.name %>
+                                </h2>
+                                <p class="product-description">
+                                    <%= product.description %>
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <div class="quantity-selector">
+                                    <button class="qty-btn minus">-</button>
+                                    <input type="number" value="1" min="1" class="qty-input">
+                                    <button class="qty-btn plus">+</button>
+                                </div>
+                                <button class="add-to-cart-btn" data-product-id="<%= product._id %>">
+                                    Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                        <% }) %>
+                </div>
+                <% } else { %>
+                    <p class="no-products">No products available at the moment.</p>
+                    <% } %>
+        </div>
+    </main>
+
+    <script>
+        const sidebar = document.getElementById('dashboardSidebar');
+        const toggleBtn = document.getElementById('sidebarToggle');
+        const closeBtn = document.getElementById('closeSidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        toggleBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+
+        // Always open sidebar on desktop
+        if (window.innerWidth >= 769) {
+            sidebar.classList.add('active');
+        }
+
+        // Quantity controls
+        document.querySelectorAll('.product-card').forEach(card => {
+            const minus = card.querySelector('.minus');
+            const plus = card.querySelector('.plus');
+            const input = card.querySelector('.qty-input');
+
+            minus.addEventListener('click', () => {
+                if (parseInt(input.value) > 1) input.value = parseInt(input.value) - 1;
+            });
+
+            plus.addEventListener('click', () => {
+                input.value = parseInt(input.value) + 1;
+            });
+        });
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            window.location.href = '/logout';
+        });
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', async () => {
+                const card = button.closest('.product-card');
+                const quantity = parseInt(card.querySelector('.qty-input').value);
+                const productId = button.dataset.productId;
+
+                if (!productId) {
+                    alert('Product ID missing');
+                    return;
+                }
+
+                try {
+                    const res = await fetch('/cart', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ productId, quantity })
+                    });
+
+                    const data = await res.json();
+
+                    if (!res.ok) {
+                        alert(data.message);
+                        return;
+                    }
+
+                    alert('Added to cart ✅');
+                } catch (err) {
+                    console.error(err);
+                    alert('Server error');
+                }
+            });
+        });
+
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            toggleBtn.style.opacity = '0';
+            toggleBtn.style.visibility = 'hidden';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            toggleBtn.style.opacity = '1';
+            toggleBtn.style.visibility = 'visible';
+            document.body.style.overflow = '';
+        }
+    </script>
+</body>
+
+</html>

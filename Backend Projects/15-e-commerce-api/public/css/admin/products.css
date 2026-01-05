@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+header {
+  background: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+header a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 15px;
+  font-weight: bold;
+}
+h1 {
+  margin: 20px;
+}
+#message {
+  text-align: center;
+  margin: 10px;
+  font-weight: bold;
+}
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: #fff;
+}
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+th,
+td {
+  padding: 10px;
+  text-align: left;
+}
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
+input[type="text"],
+input[type="number"] {
+  width: 95%;
+  padding: 5px;
+  box-sizing: border-box;
+}
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+button:hover {
+  background: #555;
+}
+@media (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+  th {
+    display: none;
+  }
+  tr {
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #fff;
+  }
+  td {
+    border: none;
+    padding: 5px 0;
+    position: relative;
+  }
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: block;
+  }
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+  }
+  button {
+    width: 48%;
+    margin: 5px 1%;
+  }
+}
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}

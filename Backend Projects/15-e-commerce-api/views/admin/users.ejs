@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Users</title>
+  <link rel="stylesheet" href="./css/admin/users.css">
+</head>
+
+<body>
+
+  <header>
+    <div>Admin Dashboard</div>
+    <div>
+      <a href="/users">Users</a>
+      <a href="/products">Products</a>
+      <a href="/logout">Logout</a>
+    </div>
+  </header>
+
+  <h1>Users</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Created At</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% users.forEach(user=> { %>
+        <tr>
+          <td data-label="Username">
+            <%= user.userName %>
+          </td>
+          <td data-label="Email">
+            <%= user.email %>
+          </td>
+          <td data-label="Name">
+            <%= user.name %>
+          </td>
+          <td data-label="Role">
+            <span class="<%= user.isAdmin ? 'admin' : 'user' %>">
+              <%= user.isAdmin ? 'Admin' : 'User' %>
+            </span>
+          </td>
+          <td data-label="Created">
+            <%= new Date(user.createdAt).toLocaleDateString() %>
+          </td>
+          <td data-label="Action">
+            <% if (!user.isAdmin) { %>
+              <form method="POST" action="/users/<%= user._id %>?_method=DELETE"
+                onsubmit="return confirm('Delete this user?');">
+                <input type="hidden" name="userName" value="<%= user.userName %>">
+                <button type="submit">Delete</button>
+              </form>
+              <% } else { %>
+                —
+                <% } %>
+          </td>
+        </tr>
+        <% }) %>
+    </tbody>
+  </table>
+
+</body>
+
+</html>

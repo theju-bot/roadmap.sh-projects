@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= title || 'Alert' %>
+    </title>
+    <link rel="stylesheet" href="./css/alert.css">
+</head>
+
+<body>
+    <div class="alert-container">
+        <!-- Icon -->
+        <div class="icon <%= type || 'info' %>">
+            <% if (type==='success' ) { %>✓<% } else if (type==='error' ) { %>✕<% } else if (type==='warning' ) { %>⚠<%
+                            } else { %>ℹ<% } %>
+        </div>
+
+        <!-- Optional Status Code (only shown for errors) -->
+        <% if (statusCode && (type==='error' || type==='warning' )) { %>
+            <div class="status-code">
+                <%= statusCode %>
+            </div>
+            <% } %>
+
+                <h1>
+                    <%= message %>
+                </h1>
+
+                <% if (details) { %>
+                    <p>
+                        <%= details %>
+                    </p>
+                    <% } %>
+
+                        <% if (redirectUrl && redirectDelay> 0) { %>
+                            <p>Redirecting in <span class="countdown" id="countdown">
+                                    <%= redirectDelay %>
+                                </span> seconds...</p>
+                            <div class="spinner" id="spinner"></div>
+                            <p>Or <a href="<%= redirectUrl %>">click here</a> to continue immediately.</p>
+                            <% } else if (redirectUrl) { %>
+                                <p><a href="<%= redirectUrl %>">Click here to continue</a></p>
+                                <% } %>
+    </div>
+
+    <% if (redirectUrl && redirectDelay> 0) { %>
+        <script>
+            const delay = Number('<%= redirectDelay %>') || 3;
+            const url = '<%= redirectUrl %>';
+            const type = '<%= type || "info" %>';
+
+            // Update spinner color
+            const spinner = document.getElementById('spinner');
+            if (spinner) {
+                if (type === 'success') spinner.style.borderTopColor = '#28a745';
+                else if (type === 'error') spinner.style.borderTopColor = '#dc3545';
+                else if (type === 'info') spinner.style.borderTopColor = '#17a2b8';
+                else if (type === 'warning') spinner.style.borderTopColor = '#ffc107';
+            }
+
+            // Countdown
+            let seconds = delay;
+            const countdownEl = document.getElementById('countdown');
+            if (countdownEl) countdownEl.textContent = seconds;
+
+            const timer = setInterval(() => {
+                seconds--;
+                if (countdownEl) countdownEl.textContent = seconds;
+
+                if (seconds <= 0) {
+                    clearInterval(timer);
+                    window.location.href = url;
+                }
+            }, 1000);
+
+            // Fallback
+            setTimeout(() => {
+                window.location.href = url;
+            }, delay * 1000 + 500);
+        </script>
+        <% } %>
+</body>
+
+</html>

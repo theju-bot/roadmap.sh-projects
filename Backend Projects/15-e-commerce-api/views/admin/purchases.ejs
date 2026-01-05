@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Purchases</title>
+    <link rel="stylesheet" href="/css/admin/users.css"><!-- reuse same CSS -->
+</head>
+
+<body>
+
+    <header>
+        <div>Admin Dashboard</div>
+        <div>
+            <a href="/users">Users</a>
+            <a href="/products">Products</a>
+            <a href="/logout">Logout</a>
+        </div>
+    </header>
+
+    <h1>Purchases</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Items</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Created At</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% purchases.forEach(purchase=> { %>
+                <tr>
+                    <td data-label="User ID">
+                        <%= purchase.userId %>
+                    </td>
+                    <td data-label="Items">
+                        <% purchase.items.forEach(item=> { %>
+                            <div>
+                                <strong>
+                                    <%= item.name %>
+                                </strong> x <%= item.quantity %> ($<%= item.price %>)
+                            </div>
+                            <% }) %>
+                    </td>
+                    <td data-label="Total Amount">$<%= purchase.amountTotal.toFixed(2) %>
+                    </td>
+                    <td data-label="Status">
+                        <span class="<%= purchase.status === 'paid' ? 'admin' : 'user' %>">
+                            <%= purchase.status %>
+                        </span>
+                    </td>
+                    <td data-label="Created At">
+                        <%= new Date(purchase.createdAt).toLocaleDateString() %>
+                    </td>
+                </tr>
+                <% }) %>
+        </tbody>
+    </table>
+
+</body>
+
+</html>
